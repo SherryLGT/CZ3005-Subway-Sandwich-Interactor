@@ -21,6 +21,7 @@ namespace SubwaySandwichInteractor
         {
             InitializeComponent();
 
+            // Try to clean up dirty Prolog engine resources from previous runs if execution terminates unexpectedly.
             try
             {
                 PlEngine.PlCleanup();
@@ -28,13 +29,9 @@ namespace SubwaySandwichInteractor
             catch (PlException) { }
             catch (Exception) { }
 
-            try
-            {
-                String[] param = { "-q", "-f", "sandwich.pl" };
-                PlEngine.Initialize(param);
-            }
-            catch (PlException) { }
-            catch (Exception) { }
+            // Initialize Prolog engine with sandwich.pl file
+            String[] param = { "-q", "-f", "sandwich.pl" };
+            PlEngine.Initialize(param);
 
             Reset();
         }
@@ -179,6 +176,12 @@ namespace SubwaySandwichInteractor
         private string UnBeautify(string str)
         {
             return str.Replace(' ', '_').ToLower();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Clean up Prolog engine resources.
+            PlEngine.PlCleanup();
         }
     }
 }

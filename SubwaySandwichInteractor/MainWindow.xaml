@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubwaySandwichInteractor"
         mc:Ignorable="d"
-        Title="Subway Sandwich Interactor" Height="600" Width="800" WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="350">
+        Title="Subway Sandwich Interactor" Height="600" Width="800" WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="350" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" MinWidth="350" />
