@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubwaySandwichInteractor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Subway Sandwich Interactor" Height="600" Width="800" WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="350">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" MinWidth="350" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid  Grid.Column="0" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <Label Name="LblStepTitle" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Content="Selections" FontSize="20" FontFamily="Segoe UI Semibold"  />
+            <ListBox Grid.Column="0" Grid.Row="1" Name="LstOption" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="18" />
+            <TextBlock TextWrapping="Wrap" Name="TxbMessage" Margin="5" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" ></TextBlock>
+            <Grid Grid.Column="0" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="130" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" Name="BtnBack" Margin="5" Content="&lt; Back" Width="75" Click="BtnBack_Click" />
+                <Button Grid.Column="2" Grid.Row="0" Name="BtnAdd" Margin="5" Content="Add to Order" Width="120" Click="BtnAdd_Click" />
+                <Button Grid.Column="3" Grid.Row="0" Name="BtnNext" Margin="5" Content="Next &gt;" Width="120" Click="BtnNext_Click" />
+                <Button Grid.Column="3" Grid.Row="0" Name="BtnConfirm" Margin="5" Content="Confirm Order" Width="120" Click="BtnConfirm_Click" />
+            </Grid>
+        </Grid>
+        <Grid  Grid.Column="1" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Content="Your Orders" FontSize="20" FontFamily="Segoe UI Semibold"  />
+            <ScrollViewer Grid.Column="0" Grid.Row="1">
+                <Label Name="LblOrders" Content="" FontSize="18" />
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>
