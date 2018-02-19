@@ -106,7 +106,7 @@ namespace SubwaySandwichInteractor
             }
             else
             {
-                // Check if there are any more option in next step
+                // Check if there are any more option in next step, e.g. select(X,topup)
                 // If there are none, it means that the current step is the last
                 using (PlQuery q = new PlQuery("options(X," + options[nextStep] + ")"))
                     if (q.Solutions.Count() == 0)
@@ -143,7 +143,7 @@ namespace SubwaySandwichInteractor
             LblOrders.Content = "";
             foreach (var category in options)
             {
-                // Get respective options from prolog, e.g. selected(X,bread)
+                // Get respective selected options from prolog, e.g. selected(X,bread)
                 using (PlQuery q = new PlQuery("selected(X," + category + ")"))
                 {
                     if (q.Solutions.Count() == 0)
@@ -172,7 +172,7 @@ namespace SubwaySandwichInteractor
             if (LstOption.SelectedItem == null)
                 return;
             var selected = LstOption.SelectedItem.ToString();
-            // Check option from prolog logic, e.g. select(X,sauce)
+            // Set selected option from prolog logic, e.g. select(ham)
             using (PlQuery q = new PlQuery("select(" + UnBeautify(selected) + ")"))
             {
                 // Indication of successful retrieval shows that adding is successful
