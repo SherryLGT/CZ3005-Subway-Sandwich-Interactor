@@ -45,11 +45,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Content="Your Orders" FontSize="20" FontFamily="Segoe UI Semibold"  />
             <ScrollViewer Grid.Column="0" Grid.Row="1">
                 <Label Name="LblOrders" Content="" FontSize="18" />
             </ScrollViewer>
+            <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Sherry Lau Geok Teng | U1521416A | BCG3" />
         </Grid>
     </Grid>
 </Window>
