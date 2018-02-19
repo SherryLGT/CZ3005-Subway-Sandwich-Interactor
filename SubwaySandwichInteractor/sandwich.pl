@@ -33,10 +33,10 @@ options(X) :- options(X,_).
     whereby the option selected is not already in */
 select(X,meal) :- \+selectedmeal(X),meals(L),member(X,L),assert(selectedmeal(X)).
 /* set selected bread option as selectedbread, 
-    whereby any option is not already in */
+    whereby any option is not already in (select 1 only) */
 select(X,bread) :- \+selectedbread(_),breads(L),member(X,L),assert(selectedbread(X)).
-/* set selected main option as selectedmain, whereby any option is not already in 
-    and that the selected meal is not veggie meal, the mains are either meat or veg */
+/* set selected main option as selectedmain, whereby any option is not already in (select 1 only)
+    and that if the selected meal is not veggie meal, the mains can be meat */
 select(X,main) :- \+selectedmain(_),(
                         (\+selectedmeal(veggie),meatmains(L),member(X,L));
                         (vegmains(L),member(X,L))
@@ -44,9 +44,8 @@ select(X,main) :- \+selectedmain(_),(
 /* set selected veggie option as selectedveggie,
     whereby the option selected is not already in */
 select(X,veggie) :- \+selectedveggie(X),veggies(L),member(X,L),assert(selectedveggie(X)).
-/* set selected sauce option as selectedsauce, whereby any option is not already in 
-    and that the selected meal is not healthy meal, the sauces are either 
-    fatty sauces or non fatty sauces */
+/* set selected sauce option as selectedsauce, whereby the option is not already in 
+    and that if the selected meal is not healthy meal, the sauces can be fatty sauces */
 select(X,sauce) :- \+selectedsauce(X),(
                          (\+selectedmeal(healthy),fattysauces(L),member(X,L));
                          (nonfattysauces(L),member(X,L))
@@ -54,9 +53,8 @@ select(X,sauce) :- \+selectedsauce(X),(
 /* set selected side option as selectedside,
     whereby the option selected is not already in */
 select(X,side) :- \+selectedside(X),sides(L),member(X,L),assert(selectedside(X)).
-/* set selected topup option as selectedtopup, whereby any option is not already in 
-    and that the selected meal is not vegan meal, the topup are either 
-    non vegan topups or vegan topups */
+/* set selected topup option as selectedtopup, whereby the option is not already in 
+    and that if the selected meal is not vegan meal, the topup can be non vegan topups */
 select(X,topup) :- \+selectedtopup(X),\+selectedmeal(value),(
                          (\+selectedmeal(vegan),nonvegantopups(L),member(X,L));
                          (vegantopups(L),member(X,L))
