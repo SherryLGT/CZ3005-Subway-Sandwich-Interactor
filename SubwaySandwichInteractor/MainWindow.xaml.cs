@@ -106,7 +106,7 @@ namespace SubwaySandwichInteractor
             }
             else
             {
-                // Check if there are any more option in next step, e.g. select(X,topup)
+                // Check if there are any more option in next step, e.g. options(X,topup)
                 // If there are none, it means that the current step is the last
                 using (PlQuery q = new PlQuery("options(X," + options[nextStep] + ")"))
                     if (q.Solutions.Count() == 0)
