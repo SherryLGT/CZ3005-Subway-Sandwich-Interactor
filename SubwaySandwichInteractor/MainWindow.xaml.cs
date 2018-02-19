@@ -100,6 +100,7 @@ namespace SubwaySandwichInteractor
             // Checking for the last option
             var nextStep = currentStep + 1;
             var end = false;
+            // If there is no more categories to display, current step is the last
             if (nextStep == options.Length)
             {
                 end = true;
