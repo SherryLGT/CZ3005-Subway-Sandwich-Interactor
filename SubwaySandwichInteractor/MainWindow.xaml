@@ -15,7 +15,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid  Grid.Column="0" Grid.Row="0" >
+        <!-- Left section for selecting options -->
+        <Grid Grid.Column="0" Grid.Row="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
@@ -39,7 +40,8 @@
                 <Button Grid.Column="3" Grid.Row="0" Name="BtnConfirm" Margin="5" Content="Confirm Order" Width="120" Click="BtnConfirm_Click" />
             </Grid>
         </Grid>
-        <Grid  Grid.Column="1" Grid.Row="0" >
+        <!-- Right section for displaying selected options -->
+        <Grid Grid.Column="1" Grid.Row="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
